@@ -1,0 +1,26 @@
+#
+# @lc app=leetcode id=150 lang=python3
+#
+# [150] Evaluate Reverse Polish Notation
+#
+
+# @lc code=start
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        stack = []
+        for char in tokens:
+            if char == "+":
+                stack.append(stack.pop() + stack.pop())
+            elif char == "-":
+                a, b = stack.pop(), stack.pop()
+                stack.append(b-a)
+            elif char == "*":
+                stack.append(stack.pop()*stack.pop())
+            elif char == "/":
+                a, b = stack.pop(), stack.pop()
+                stack.append(int(b/a))
+            else:
+                stack.append(int(char))
+        return stack[0]
+# @lc code=end
+
