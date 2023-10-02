@@ -24,7 +24,7 @@ class Solution:
     def dfs(self, grid, row, column, visited, rows, columns, area):
         q = collections.deque()
         visited.add((row, column))
-        q.append((row, column))
+        q.append([row, column])
 
         while q:
             r, c = q.popleft()
@@ -37,7 +37,7 @@ class Solution:
                     (current_row, current_column) not in visited):
                     area+=1
                     visited.add((current_row, current_column))
-                    q.append((current_row, current_column))
+                    q.append([current_row, current_column])
 
         return area
 
