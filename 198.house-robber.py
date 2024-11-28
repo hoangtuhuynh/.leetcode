@@ -7,7 +7,10 @@
 # @lc code=start
 class Solution:
     def rob(self, nums: List[int]) -> int:
+        [1,2,3,4] [0,1] -> [1,2] -> [2,4]
+        
         if len(nums) ==1:
+
             return nums[0]
         dp = [0,0]
         for n in nums:
